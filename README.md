@@ -98,9 +98,9 @@ assignment, yet still provides only minimal functionality. Your group will take
 this social media baseline and make it your own. Consider yourselves a small
 startup with a new and unique take on the social media market.
 
-Collaborators 
-Reily Thompson
-Ryan Larson
-Levi 
+## Collaborators 
+Reily Thompson,
+Ryan Larson,
+Levi,
 Nathanial 
 
