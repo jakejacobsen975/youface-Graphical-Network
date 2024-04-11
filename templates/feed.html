@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-md-center mb-4">
+  <h1 class="">Welcome, {{username}}!</h1>
+</div>
+
+<div class="row justify-content-center">
+
+  <div class="col col-lg-8">
+    <div class="card bg-light mb-3">
+      <div class="card-body">
+        <h3 class="card-title">New Post</h3>
+        <form method="post" action="/post">
+          <div class="form-group">
+            <textarea class="form-control" name="post" rows="3" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="background-color: #66a2e3; border-color: #66a2e3;" name="post-submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <h2 class="">My Feed</h2>
+    {% for post in posts %}
+    <div class="card bg-light">
+      <div class="card-body">
+        <h4 class="card-title">{{ post.user }}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{ post.time|convert_time }}</h6>
+        <h2 class="card-text" style="font-family: Impact;">{{ post.text }}</h2>
+
+        <img src="data:image/png;base64,{{ post.meme_image}}"/>
+        <form action="/like" method="post" style="position: absolute; top: 0; right: 0;">
+          <button type="submit"class="btn btn-primary"style="background-color: #66a2e3; border-color: #66a2e3;">Like {{post.num_likes}}</button>
+          <input type="hidden" name="post_id" value="{{ post.id }}">
+        </form>
+        <p class="card-text">Comments: {{ post.comments }}</p>
+        <form action="/comment" method="post">
+          <textarea class="form-control" name="commentPostID" rows="3" placeholder="What's on your mind?"></textarea>
+          <div class="float-right">
+          <button name="comment"class="btn btn-primary"style="background-color: #66a2e3; border-color: #66a2e3;">Comment</button>
+          </div>
+          <input type="hidden" name="post_id" value="{{ post.id }}">
+        </form>
+        
+
+        <form action="/rate" method="post">
+          <input type="submit"class="btn btn-primary" style="background-color: #66a2e3; border-color: #66a2e3;"value="Rate">
+          <select name="sum_rating">
+              <option value="1">★</option>
+              <option value="2">★★</option>
+              <option value="3">★★★</option>
+              <option value="4">★★★★</option>
+              <option value="5">★★★★★</option>
+          </select>
+          <input type="hidden" name="post_id" value="{{ post.id }}">
+        </form>
+        <p class="card-text">Average Rating: {{ post.avg_rating }}</p>
+      </div>
+    </div>    
+    {% endfor %}
+  </div>
+
+  <div class="col col-lg-3">
+    <div class="card bg-light mb-3">
+      <div class="card-body">
+        <h3 class="card-title">Add Friend</h3>
+        <form method="post" action="/addfriend">
+          <div class="form-group mb-1">
+            <input type="text" class="form-control" name="name" placeholder="username" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="background-color: #66a2e3; border-color: #66a2e3;" name="addfriend">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card bg-light">
+      <div class="card-body">
+        <h3 class="card-title">My Friends</h3>
+        {% if friends %}
+          <ul>
+            {% for friend in friends %}
+              <li><a href="/friend/{{ friend.username }}">{{ friend.username }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="card-text">
+            Sorry, no friends!
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
