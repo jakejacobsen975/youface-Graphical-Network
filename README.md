@@ -1,4 +1,4 @@
-# YouFace README
+# Assignment description
 
 YouFace is a mock social media platform. Originally designed as an assignment
 for CS 1410, it has been simplified and modernized for CS 2450. This repository
@@ -6,15 +6,6 @@ houses a rough implementation of the completed version of the original
 assignment, yet still provides only minimal functionality. Your group will take
 this social media baseline and make it your own. Consider yourselves a small
 startup with a new and unique take on the social media market.
-
-This README is far from comprehensive. The entire project will provide you an
-opportunity to have the experience of jumping into an existing code base, having
-to learn about it as you go (lack of documentation and disorganized layouts are
-commonplace in the industry). With that in mind, I still want to help as much as
-I can. As you go about working on the project, please let me know of any
-specific areas where I could improve the documentation.
-
-## Getting Started
 
 ### Installing Requirements
 
@@ -34,7 +25,12 @@ By default, the server can be accessed at `http://127.0.0.1:5000`
 
 Press `CTRL+C` to stop the server
 
-## Development
+### posting
+
+if you want to post and generate a meme. Run youface with an openai api key.
+```
+python3 youface.py sk-123456789
+```
 
 ### File Tree
 
@@ -65,43 +61,37 @@ Press `CTRL+C` to stop the server
 └── youface.py
 ```
 
-### External Libraries
 
-The following external libraries were used to help make this project. Please
-refer to their documentation frequently. It will be more useful to you to check
-with the documentation before you search Google/StackOverflow. In fact, the more
-you practice referencing official documentation, the quicker you'll get at it.
-You might eventually find yourself not relying on StackOverflow near as much as
-before. I'll include some links with helpful tutorials as well.
+# Summary
 
-- [Flask](https://palletsprojects.com/p/flask/)
-    - https://pythonhow.com/flask-navigation-menu/
-    - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
-    - https://blog.pythonanywhere.com/121/
-- [jinja](https://jinja.palletsprojects.com/en/2.11.x/)
-    - https://jinja.palletsprojects.com/en/2.11.x/tricks/
-    - https://realpython.com/primer-on-jinja-templating/
-- [TinyDB](https://pypi.org/project/tinydb/)
-    - https://tinydb.readthedocs.io/en/latest/
-    - See examples in dbhelpers.py
-- [timeago](https://pypi.org/project/timeago/)
+## Introduction
+Purpose: Make a social experiment with AI-generated memes to find the best memes.
+Audience: Renn.
+Scope: The software lets users create and share memes, like and comment on them, and has a leaderboard.
 
-### Database Documents (Objects)
+## Overall Description
+Product: A standalone product that works with AI generators for memes and user data.
+Functions: Posting, commenting, adding friends, liking posts, and viewing friends' memes.
+Constraints: Limited by the AI's capabilities and doesn't require internet access.
+Documentation: FAQ page will explain website features and leaderboards.
+Assumptions: Assumes functioning OpenAI website and manages resulting traffic.
 
-Users
+## External Interface Requirements
+Interfaces: Website with feed, post, friend management sections.
+Hardware: Works on computers and phones.
+Software: Interacts with OpenAI and server.
+Communication: No security or encryption, interacts with OpenAI and ChatGPT via website.
 
-| Key | Type | Description |
-| --- | ------ | --- |
-| id | int | The user's unique identifier. |
-| username | str | The user's unique username. |
-| password | str | The user's password. |
-| friends | []int | A list of user ids for this user's friends. |
+# System Features
 
-Posts
-
-| Key | Type | Description |
-| --- | ------ | --- |
-| id | int | The post's unique identifier. |
-| user | str | The username of the post creator. |
-| text | str | The text of the post. |
-| time | float | The timestamp for when the post was created. |
+Receiving Content from ChatGPT: Get text and image from ChatGPT.
+ChatGPT Meme Generation: Generate memes in correct format for posting.
+Posting: Let users post memes.
+Comments: Allow users to comment on posts.
+Like Leaderboard: Rank memes by likes.
+Feed Based on Friends: Show friends' posts.
+Other Nonfunctional Requirements
+Safety: Admins can remove posts and delete accounts; memes should not cause cognitive harm.
+Security: User data stored securely, protected against SQL injection.
+Quality Attributes: User-friendly, reliable, compatible, and maintainable website.
+Business Rules: Prevent bots and fake accounts, allow user customization, provide truthful privacy policy.
