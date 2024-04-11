@@ -1,12 +1,4 @@
-# Assignment description
-
-YouFace is a mock social media platform. Originally designed as an assignment
-for CS 1410, it has been simplified and modernized for CS 2450. This repository
-houses a rough implementation of the completed version of the original
-assignment, yet still provides only minimal functionality. Your group will take
-this social media baseline and make it your own. Consider yourselves a small
-startup with a new and unique take on the social media market.
-
+![Screenshot 2024-04-11 155834](https://github.com/jakejacobsen975/youface-Graphical-Network/assets/122470500/987c6a28-0986-40eb-ae2a-0377c59d671f)
 ### Installing Requirements
 
 The requirements are listed in `requirements.txt`. With `pip`, they can be
@@ -61,6 +53,7 @@ python3 youface.py sk-123456789
 └── youface.py
 ```
 
+![Screenshot 2024-04-11 155912](https://github.com/jakejacobsen975/youface-Graphical-Network/assets/122470500/5a104eff-9e84-4721-8eae-392b8abb0b43)
 
 # Summary
 
@@ -95,3 +88,12 @@ Safety: Admins can remove posts and delete accounts; memes should not cause cogn
 Security: User data stored securely, protected against SQL injection.
 Quality Attributes: User-friendly, reliable, compatible, and maintainable website.
 Business Rules: Prevent bots and fake accounts, allow user customization, provide truthful privacy policy.
+
+# Assignment description
+
+YouFace is a mock social media platform. Originally designed as an assignment
+for CS 1410, it has been simplified and modernized for CS 2450. This repository
+houses a rough implementation of the completed version of the original
+assignment, yet still provides only minimal functionality. Your group will take
+this social media baseline and make it your own. Consider yourselves a small
+startup with a new and unique take on the social media market.
